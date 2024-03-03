@@ -23,7 +23,7 @@ namespace Africuisine.API.Controllers.Ingredients
             try
             {
                 var categories = await IngrCategoryService.GetIngredientCategories();
-                return Ok(new ItemsResponse<IngredientCategoryDTO> { Items = categories, Succeeded = categories is not null});
+                return Ok(new ItemsResponse<IngredientCategoryDTO> { Items = categories, Succeeded = categories.Count > 0 });
             }
             catch (Exception ex)
             {

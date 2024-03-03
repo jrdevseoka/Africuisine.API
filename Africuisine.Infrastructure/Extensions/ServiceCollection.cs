@@ -12,6 +12,8 @@ using Africuisine.Infrastructure.Email;
 using Africuisine.Domain.Repositories.Repository;
 using Africuisine.Infrastructure.Persistence.Repositories.Users;
 using Africuisine.Domain.Repositories.Repository.Ingredients;
+using Africuisine.Infrastructure.Persistence.Repositories.Ingredients;
+using Africuisine.Domain.Interfaces.Ingredients;
 
 namespace Africuisine.Infrastructure.Extensions
 {
@@ -75,6 +77,7 @@ namespace Africuisine.Infrastructure.Extensions
             services.AddScoped<IPostmarkService, PostmarkService>();
             services.AddScoped<ICulturalGroupRepository, CulturalGroupRepository>();
             services.AddScoped<IIngrCategoryRepository, IngrCategoryRepository>();
+            services.AddScoped<IMeasurementRepository, MeasurementRepository>();
             return services;
         }
     }

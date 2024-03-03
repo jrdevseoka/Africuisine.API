@@ -2,7 +2,9 @@
 using Africuisine.Domain.Entities.Ingredients;
 using Africuisine.Domain.Entities.User;
 using Africuisine.Domain.Enums;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Metrics;
 using System.Text.RegularExpressions;
 
 namespace Africuisine.Infrastructure.Extensions
@@ -68,7 +70,7 @@ namespace Africuisine.Infrastructure.Extensions
             {
                 b.HasKey(r => r.Id);
 
-               
+
                 b.HasIndex(r => r.NormalizedName).HasDatabaseName("RoleNameIndex").IsUnique();
                 b.ToTable("Roles");
                 b.Property(r => r.ConcurrencyStamp).IsConcurrencyToken();
@@ -126,6 +128,22 @@ namespace Africuisine.Infrastructure.Extensions
             });
             return builder;
         }
+        public static ModelBuilder ConfigureMeasurements(this ModelBuilder builder)
+        {
+            builder.Entity<Measurement>(b =>
+            {
+                b.HasKey(c => c.Id);
+                b.Property(c => c.Id).ValueGeneratedOnAdd();
+                b.ToTable("Measurements");
+
+                b.Property<string>(c => c.Name).IsRequired();
+
+                b.HasIndex(c => c.Name).HasDatabaseName("IX_Measurements_Name").IsUnique();
+                var measurements = GenerateMeasurements();
+                b.HasData(measurements);
+            });
+            return builder;
+        }
         private static List<CulturalGroup> GenerateCulturalGroups()
         {
             List<CulturalGroup> groups = new();
@@ -168,7 +186,7 @@ namespace Africuisine.Infrastructure.Extensions
         }
         private static List<IngredientCategory> GenerateIngredientCategories()
         {
-            var eNames = Enum.GetNames (typeof(EIngredientCategory));
+            var eNames = Enum.GetNames(typeof(EIngredientCategory));
             List<IngredientCategory> categories = new();
             foreach (var name in eNames)
             {
@@ -184,6 +202,57 @@ namespace Africuisine.Infrastructure.Extensions
                 categories.Add(category);
             }
             return categories;
+        }
+        private static List<Measurement> GenerateMeasurements()
+        {
+            string[] names = Enum.GetNames(typeof(EMeasurement));
+            List<Measurement> measurements = new();
+            foreach (string name in names)
+            {
+                string description = GetDescription(name);
+                string unit = GetMeasurementAbbrevation(name);
+                var measurement = new Measurement
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = name,
+                    Abbreviation = unit,
+                    Description = description,
+                    LUserUpdate = string.Empty,
+                    Creation = DateTime.Now,
+                    LastUpdate = DateTime.Now
+                };
+                measurements.Add(measurement);
+            }
+            return measurements;
+        }
+        private static string GetDescription(string name)
+        {
+            return name switch
+            {
+                "Milliliter" => "Used for liquids, such as water, milk, and oil",
+                "Liters" => "Larger volume measurements, often used for bulk liquids.",
+                "Grams" => "Common unit for measuring dry ingredients like flour, sugar, and spices.",
+                "Kilograms" => "Larger mass measurements, especially for bulk ingredients.",
+                "Teaspoon" => "Approximately 5 ml.",
+                "Tablespoon" => "Approximately 15 ml.",
+                "Cup" => "Used for both liquid and dry ingredients.",
+                _ => throw new NullReferenceException($"Description for does ${name} not exist"),
+            };
+        }
+
+        private static string GetMeasurementAbbrevation(string name)
+        {
+            return name switch
+            {
+                "Milliliter" => "ml",
+                "Liters" => "l",
+                "Grams" => "g",
+                "Kilograms" => "kg",
+                "Teaspoon" => "tsp.",
+                "Tablespoon" => "Tbsp",
+                "Cup" => "250 ml",
+                _ => throw new NullReferenceException($"Description for does ${name} not exist"),
+            };
         }
     }
 }

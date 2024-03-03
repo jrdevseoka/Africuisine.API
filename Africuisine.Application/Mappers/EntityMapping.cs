@@ -17,6 +17,7 @@ namespace Africuisine.Application.Mappers
             MappingRoleToRoleDTO();
             MappingCulturalGroupToCulturalGroupDTO();
             MappingIngredientCategoryToIngredientCategoryDTO();
+            MappingMeasurementToMeasurementDTO();
         }
 
         public void MappingBaseEntityToBaseDTO()
@@ -54,6 +55,11 @@ namespace Africuisine.Application.Mappers
         public void MappingIngredientCategoryToIngredientCategoryDTO()
         {
             CreateMap<IngredientCategory, IngredientCategoryDTO>()
+                .IncludeBase<BaseEntity, BaseDTO>();
+        }
+        public void MappingMeasurementToMeasurementDTO()
+        {
+            CreateMap<Measurement, MeasurementDTO>()
                 .IncludeBase<BaseEntity, BaseDTO>();
         }
     }
