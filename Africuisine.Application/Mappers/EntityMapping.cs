@@ -31,7 +31,7 @@ namespace Africuisine.Application.Mappers
         {
             CreateMap<User, UserDTO>()
                 .ForMember(dst => dst.Created, src => src.MapFrom(dst => dst.Creation))
-                .ForMember(dst => dst.FullName, src => src.MapFrom(dst => dst.Name))
+                .ForMember(dst => dst.FullName, src => src.MapFrom(dst => dst.Id))
                 .ForMember(dst => dst.LastModified, src => src.MapFrom(dst => dst.LastUpdate))
                 .ReverseMap();
         }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Africuisine.Infrastructure.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240302195501_InitializeSQLDatabase")]
-    partial class InitializeSQLDatabase
+    [Migration("20240303200227_InitializeDatabase")]
+    partial class InitializeDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,136 +52,136 @@ namespace Africuisine.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9b3a7db6-b330-4583-8140-0352ac6a8011",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(370),
+                            Id = "3541bf74-89df-4c4d-af2e-59c6cfe36b7b",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2631),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(372),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2632),
                             Name = "Zulu",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "8e861f64-c30b-47dc-b12e-d546cfd17453",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(383),
+                            Id = "1d6238b4-5044-4231-b04d-1d5c86efd60f",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2636),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(383),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2636),
                             Name = "Xhosa",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "f4db1989-7ef1-42b0-8561-de3fdd771b8f",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(389),
+                            Id = "9e1aebc8-1729-4c22-8e46-91f8e67b6409",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2639),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(390),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2639),
                             Name = "Tswana",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "4bf4eb45-2e94-48fd-a548-48145607e4cf",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(395),
+                            Id = "02d4db1b-3317-4d12-a8ed-6c46f773c052",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2652),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(395),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2652),
                             Name = "Sotho",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "369dc868-f621-40ce-aad3-54bba2be2b8e",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(410),
+                            Id = "3d8c07ce-066e-47bd-af20-7fdb08e726db",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2654),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(411),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2654),
                             Name = "Swazi",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "1cb706f7-730f-43a8-8616-a24ca32826e4",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(419),
+                            Id = "86cd9dd1-5e5e-45c5-841f-71afa4fc1615",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2658),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(420),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2658),
                             Name = "Venda",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "3ec01b27-7578-4a56-96d4-f41246a90774",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(424),
+                            Id = "9a5d85f7-8461-4a6c-b3eb-0f37f368dd2f",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2660),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(424),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2661),
                             Name = "Tsonga",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "843eaf24-bc1c-442b-a28a-5859e9eb749b",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(429),
+                            Id = "7b12fec3-cba8-4ae9-bc8d-41ad4d9e435b",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2663),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(430),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2663),
                             Name = "Ndebele",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "a3b3fa07-fddb-4263-88f5-db1de384c961",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(434),
+                            Id = "0e6905f3-0426-4379-ba47-9a9e41e68529",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2665),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(435),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2665),
                             Name = "BaPedi",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "36dc8713-5eca-45e6-895c-a3da20be0b3f",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(537),
+                            Id = "c3078d6c-d38d-4af2-b338-4827fe3c692a",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2668),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(538),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2668),
                             Name = "Khoisan",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "3f17c686-cabe-4cea-bb2a-dfddc59ecac2",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(543),
+                            Id = "08a2421e-ddd6-431b-ae6f-815158f24c17",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2670),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(543),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2671),
                             Name = "Griqua",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "f877826e-5f05-4998-9ec0-bd90ad6bccac",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(548),
+                            Id = "8a76ab46-3d31-4c94-9576-626240339d12",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2675),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(549),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2675),
                             Name = "Coloured",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "04d33c2e-fe8c-4600-bd4d-46ad8d86c5fd",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(558),
+                            Id = "5feafb11-ccae-4d67-b9c3-b9d3982c6890",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2677),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(559),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2677),
                             Name = "Indian",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "5415b068-fe83-4229-9f77-3b64155542ed",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(564),
+                            Id = "0020e6c2-cae2-4e2f-9a95-1701706c0da7",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2679),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(564),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2679),
                             Name = "English",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "2a5b27a1-65be-4a0a-bdb7-620cb1f65bb3",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(569),
+                            Id = "ceef2312-f9aa-4d07-b68a-2d2ebfe16188",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2682),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(570),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2682),
                             Name = "Afrikaaner",
                             SeqNo = 0
                         });
@@ -228,22 +228,22 @@ namespace Africuisine.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a773c719-73e2-46a4-91d9-5ccd84b101fa",
-                            ConcurrencyStamp = "39b6154d-2b7a-4b80-a7a6-0d24f77f86e4",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8272),
+                            Id = "166c241b-1f3a-43b7-95d8-867e18b399c8",
+                            ConcurrencyStamp = "91e143db-2107-4859-961f-0db5c0d63c26",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1821),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8277),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1823),
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR",
                             SeqNo = 0
                         },
                         new
                         {
-                            Id = "108d0ef0-290d-4d08-a34f-9b181f0db61e",
-                            ConcurrencyStamp = "6446d2d8-9813-4571-ab1c-9c5fb75c6103",
-                            Creation = new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8327),
+                            Id = "f471b403-1802-496d-bf24-e87e11d0ff7b",
+                            ConcurrencyStamp = "4c2e2ea4-f118-46ff-ad67-5b9c40d0d4ea",
+                            Creation = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1882),
                             LUserUpdate = "",
-                            LastUpdate = new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8328),
+                            LastUpdate = new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1882),
                             Name = "Mobile",
                             NormalizedName = "MOBILE",
                             SeqNo = 0
@@ -278,6 +278,7 @@ namespace Africuisine.Infrastructure.Migrations
             modelBuilder.Entity("Africuisine.Domain.Entities.User.User", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -290,15 +291,15 @@ namespace Africuisine.Infrastructure.Migrations
                     b.Property<DateTime>("Creation")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CulturalGroupId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LCulturalGroup")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LUserUpdate")
                         .HasColumnType("nvarchar(max)");
@@ -347,7 +348,7 @@ namespace Africuisine.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CulturalGroupId");
+                    b.HasIndex("LCulturalGroup");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -445,6 +446,40 @@ namespace Africuisine.Infrastructure.Migrations
                     b.ToTable("UserToken", (string)null);
                 });
 
+            modelBuilder.Entity("Africuisine.Domain.Entities.Users.Profile", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Creation")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LUserUpdate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SeqNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Uri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Id", "LUser");
+
+                    b.ToTable("Profiles");
+                });
+
             modelBuilder.Entity("Africuisine.Domain.Entities.User.RoleClaim", b =>
                 {
                     b.HasOne("Africuisine.Domain.Entities.User.Role", null)
@@ -458,7 +493,7 @@ namespace Africuisine.Infrastructure.Migrations
                 {
                     b.HasOne("Africuisine.Domain.Entities.User.CulturalGroup", null)
                         .WithMany()
-                        .HasForeignKey("CulturalGroupId");
+                        .HasForeignKey("LCulturalGroup");
                 });
 
             modelBuilder.Entity("Africuisine.Domain.Entities.User.UserClaim", b =>

@@ -1,10 +1,9 @@
 ﻿using Africuisine.Domain;
 using Africuisine.Domain.Entities.Ingredients;
 using Africuisine.Domain.Entities.User;
+using Africuisine.Domain.Entities.Users;
 using Africuisine.Domain.Enums;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
 using System.Text.RegularExpressions;
 
 namespace Africuisine.Infrastructure.Extensions
@@ -29,7 +28,7 @@ namespace Africuisine.Infrastructure.Extensions
                 b.HasMany<UserLogin>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
                 b.HasMany<UserToken>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
                 b.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
-                b.HasOne<CulturalGroup>().WithMany().HasForeignKey(u => u.CulturalGroupId);
+                b.HasOne<CulturalGroup>().WithMany().HasForeignKey(u => u.LCulturalGroup);
             });
             return builder;
         }
@@ -98,6 +97,14 @@ namespace Africuisine.Infrastructure.Extensions
             {
                 b.HasKey(r => new { r.UserId, r.RoleId });
                 b.ToTable("UserRoles");
+            });
+            return builder;
+        }
+        public static ModelBuilder ConfigureProfile(this ModelBuilder builder)
+        {
+            builder.Entity<Profile>(b =>
+            {
+                b.HasAlternateKey(r => new { r.Id, r.LUser });
             });
             return builder;
         }

@@ -41,7 +41,7 @@ namespace Africuisine.Application.Services.Users
         public List<Claim> GenerateClaims(User user, IList<string> roles)
         {
             var claims = new List<Claim> {
-                new(ClaimTypes.Name, user.Name),
+                new(ClaimTypes.Name, user.Id),
                 new(ClaimTypes.Email, user.Email),
                 new(ClaimTypes.NameIdentifier, user.Id),
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())

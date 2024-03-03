@@ -14,6 +14,8 @@ using Africuisine.Infrastructure.Persistence.Repositories.Users;
 using Africuisine.Domain.Repositories.Repository.Ingredients;
 using Africuisine.Infrastructure.Persistence.Repositories.Ingredients;
 using Africuisine.Domain.Interfaces.Ingredients;
+using Africuisine.Domain.Repositories.Services;
+using Africuisine.Infrastructure.Services.Files;
 
 namespace Africuisine.Infrastructure.Extensions
 {
@@ -75,9 +77,11 @@ namespace Africuisine.Infrastructure.Extensions
         public static IServiceCollection AddAPIInfrastructureServices(this IServiceCollection services)
         {
             services.AddScoped<IPostmarkService, PostmarkService>();
+            services.AddScoped<IFileService, FileService>();
             services.AddScoped<ICulturalGroupRepository, CulturalGroupRepository>();
             services.AddScoped<IIngrCategoryRepository, IngrCategoryRepository>();
             services.AddScoped<IMeasurementRepository, MeasurementRepository>();
+            services.AddScoped<IProfileRepository, ProfileRepository>();
             return services;
         }
     }

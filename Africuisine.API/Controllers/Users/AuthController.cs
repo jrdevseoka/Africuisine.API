@@ -42,7 +42,7 @@ namespace Africuisine.API.Controllers.Users
                     var user = await UserService.GetUserByUserName(request.UserName);
                     var roles = await RoleService.GetUserRoleNames(user);
                     var claims = AuthenticationService.GenerateClaims(user, roles);
-                    var group = await CulturalGroupRepository.GetCulturalGroupById(user.CulturalGroupId);
+                    var group = await CulturalGroupRepository.GetCulturalGroupById(user.LCulturalGroup);
                     string token = AuthenticationService.GenerateJwtToken(claims);
                     var dto = Mapper.Map<UserDTO>(user);
                     dto.CulturalGroupName = group.Name;
@@ -55,6 +55,62 @@ namespace Africuisine.API.Controllers.Users
             }
             catch (Exception ex)
             {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
                 throw;
             }
         }

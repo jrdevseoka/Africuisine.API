@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace Africuisine.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitializeSQLDatabase : Migration
+    public partial class InitializeDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,6 +27,25 @@ namespace Africuisine.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CulturalGroups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profiles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Uri = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LUser = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Creation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LUserUpdate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SeqNo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profiles", x => x.Id);
+                    table.UniqueConstraint("AK_Profiles_Id_LUser", x => new { x.Id, x.LUser });
                 });
 
             migrationBuilder.CreateTable(
@@ -54,9 +74,9 @@ namespace Africuisine.Infrastructure.Migrations
                     Creation = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LUserUpdate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SeqNo = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CulturalGroupId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    SeqNo = table.Column<int>(type: "int", nullable: false),
+                    LCulturalGroup = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -76,8 +96,8 @@ namespace Africuisine.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_CulturalGroups_CulturalGroupId",
-                        column: x => x.CulturalGroupId,
+                        name: "FK_Users_CulturalGroups_LCulturalGroup",
+                        column: x => x.LCulturalGroup,
                         principalTable: "CulturalGroups",
                         principalColumn: "Id");
                 });
@@ -193,21 +213,21 @@ namespace Africuisine.Infrastructure.Migrations
                 columns: new[] { "Id", "Creation", "LUserUpdate", "LastUpdate", "Name", "SeqNo" },
                 values: new object[,]
                 {
-                    { "04d33c2e-fe8c-4600-bd4d-46ad8d86c5fd", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(558), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(559), "Indian", 0 },
-                    { "1cb706f7-730f-43a8-8616-a24ca32826e4", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(419), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(420), "Venda", 0 },
-                    { "2a5b27a1-65be-4a0a-bdb7-620cb1f65bb3", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(569), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(570), "Afrikaaner", 0 },
-                    { "369dc868-f621-40ce-aad3-54bba2be2b8e", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(410), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(411), "Swazi", 0 },
-                    { "36dc8713-5eca-45e6-895c-a3da20be0b3f", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(537), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(538), "Khoisan", 0 },
-                    { "3ec01b27-7578-4a56-96d4-f41246a90774", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(424), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(424), "Tsonga", 0 },
-                    { "3f17c686-cabe-4cea-bb2a-dfddc59ecac2", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(543), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(543), "Griqua", 0 },
-                    { "4bf4eb45-2e94-48fd-a548-48145607e4cf", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(395), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(395), "Sotho", 0 },
-                    { "5415b068-fe83-4229-9f77-3b64155542ed", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(564), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(564), "English", 0 },
-                    { "843eaf24-bc1c-442b-a28a-5859e9eb749b", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(429), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(430), "Ndebele", 0 },
-                    { "8e861f64-c30b-47dc-b12e-d546cfd17453", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(383), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(383), "Xhosa", 0 },
-                    { "9b3a7db6-b330-4583-8140-0352ac6a8011", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(370), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(372), "Zulu", 0 },
-                    { "a3b3fa07-fddb-4263-88f5-db1de384c961", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(434), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(435), "BaPedi", 0 },
-                    { "f4db1989-7ef1-42b0-8561-de3fdd771b8f", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(389), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(390), "Tswana", 0 },
-                    { "f877826e-5f05-4998-9ec0-bd90ad6bccac", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(548), "", new DateTime(2024, 3, 2, 19, 55, 0, 945, DateTimeKind.Utc).AddTicks(549), "Coloured", 0 }
+                    { "0020e6c2-cae2-4e2f-9a95-1701706c0da7", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2679), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2679), "English", 0 },
+                    { "02d4db1b-3317-4d12-a8ed-6c46f773c052", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2652), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2652), "Sotho", 0 },
+                    { "08a2421e-ddd6-431b-ae6f-815158f24c17", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2670), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2671), "Griqua", 0 },
+                    { "0e6905f3-0426-4379-ba47-9a9e41e68529", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2665), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2665), "BaPedi", 0 },
+                    { "1d6238b4-5044-4231-b04d-1d5c86efd60f", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2636), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2636), "Xhosa", 0 },
+                    { "3541bf74-89df-4c4d-af2e-59c6cfe36b7b", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2631), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2632), "Zulu", 0 },
+                    { "3d8c07ce-066e-47bd-af20-7fdb08e726db", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2654), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2654), "Swazi", 0 },
+                    { "5feafb11-ccae-4d67-b9c3-b9d3982c6890", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2677), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2677), "Indian", 0 },
+                    { "7b12fec3-cba8-4ae9-bc8d-41ad4d9e435b", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2663), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2663), "Ndebele", 0 },
+                    { "86cd9dd1-5e5e-45c5-841f-71afa4fc1615", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2658), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2658), "Venda", 0 },
+                    { "8a76ab46-3d31-4c94-9576-626240339d12", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2675), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2675), "Coloured", 0 },
+                    { "9a5d85f7-8461-4a6c-b3eb-0f37f368dd2f", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2660), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2661), "Tsonga", 0 },
+                    { "9e1aebc8-1729-4c22-8e46-91f8e67b6409", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2639), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2639), "Tswana", 0 },
+                    { "c3078d6c-d38d-4af2-b338-4827fe3c692a", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2668), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2668), "Khoisan", 0 },
+                    { "ceef2312-f9aa-4d07-b68a-2d2ebfe16188", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2682), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(2682), "Afrikaaner", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -215,8 +235,8 @@ namespace Africuisine.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Creation", "LUserUpdate", "LastUpdate", "Name", "NormalizedName", "SeqNo" },
                 values: new object[,]
                 {
-                    { "108d0ef0-290d-4d08-a34f-9b181f0db61e", "6446d2d8-9813-4571-ab1c-9c5fb75c6103", new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8327), "", new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8328), "Mobile", "MOBILE", 0 },
-                    { "a773c719-73e2-46a4-91d9-5ccd84b101fa", "39b6154d-2b7a-4b80-a7a6-0d24f77f86e4", new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8272), "", new DateTime(2024, 3, 2, 19, 55, 0, 944, DateTimeKind.Utc).AddTicks(8277), "Administrator", "ADMINISTRATOR", 0 }
+                    { "166c241b-1f3a-43b7-95d8-867e18b399c8", "91e143db-2107-4859-961f-0db5c0d63c26", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1821), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1823), "Administrator", "ADMINISTRATOR", 0 },
+                    { "f471b403-1802-496d-bf24-e87e11d0ff7b", "4c2e2ea4-f118-46ff-ad67-5b9c40d0d4ea", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1882), "", new DateTime(2024, 3, 3, 20, 2, 26, 909, DateTimeKind.Utc).AddTicks(1882), "Mobile", "MOBILE", 0 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -252,9 +272,9 @@ namespace Africuisine.Infrastructure.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_CulturalGroupId",
+                name: "IX_Users_LCulturalGroup",
                 table: "Users",
-                column: "CulturalGroupId");
+                column: "LCulturalGroup");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_UserName",
@@ -267,6 +287,9 @@ namespace Africuisine.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Profiles");
+
             migrationBuilder.DropTable(
                 name: "RoleClaims");
 

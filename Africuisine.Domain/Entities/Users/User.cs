@@ -10,8 +10,8 @@ namespace Africuisine.Domain.Entities.User
         public DateTime LastUpdate { get; set; }
         public string LUserUpdate { get; set; }
         public int SeqNo { get; set; }
-        public string Name { get; set; }
-        public string CulturalGroupId { get; set; }
+        public string Name {get; set;}
+        public string LCulturalGroup { get; set; }
 
     }
 }
