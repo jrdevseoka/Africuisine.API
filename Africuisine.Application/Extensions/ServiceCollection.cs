@@ -24,6 +24,7 @@ namespace Africuisine.Application.Extensions
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IIngrCategoryService, IngrCategoryService>();
+            services.AddScoped<IMeasurementService, MeasurementService>();
             return services;
         }
         public static IServiceCollection AddAPIOptionsConfiguration(this IServiceCollection services, IConfiguration configuration)
