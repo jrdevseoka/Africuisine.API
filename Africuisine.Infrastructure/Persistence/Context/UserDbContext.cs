@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Africuisine.Infrastructure.Persistence.Context
 {
-    public class UserDbContext : IdentityDbContext<User, Role, Guid>
+    public class UserDbContext : IdentityDbContext<User, Role,string, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public DbSet<CulturalGroup> CulturalGroups { get; set; }
 
@@ -13,8 +13,16 @@ namespace Africuisine.Infrastructure.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ConfigureUserEntityTypeConfiguration();
             base.OnModelCreating(builder);
+            builder.ConfigureUser();
+            builder.ConfigureUserClaim();
+            builder.ConfigureUserLogin();
+            builder.ConfigureUserToken();
+            builder.ConfigureRole();
+            builder.ConfigureUserRole();
+            builder.ConfigureCulturalGroup();
+            builder.ConfigureRoleClaim();
+
         }
     }
 }

@@ -7,11 +7,10 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Africuisine.Application\Africuisine.Application.csproj" />
+    <ProjectReference Include="..\Africuisine.Domain\Africuisine.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Email\" />
     <Folder Include="Services\" />
-    <Folder Include="Persistence\Migrations\" />
     <Folder Include="Caching\" />
     <Folder Include="Jobs\" />
     <Folder Include="Persistence\Repositories\" />
@@ -19,6 +18,8 @@
     <Folder Include="Persistence\Seeding\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.16">
@@ -27,5 +28,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="NLog" Version="5.2.8" />
+    <PackageReference Include="Postmark" Version="4.8.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0" />
   </ItemGroup>
 </Project>
