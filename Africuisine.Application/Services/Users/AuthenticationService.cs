@@ -1,8 +1,11 @@
-﻿using Africuisine.Application.Data.Command.Users;
+﻿using Africuisine.Domain.Entities.User;
+using Africuisine.Domain.Exceptions;
+
+using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Config;
 using Africuisine.Application.Data.Res;
 using Africuisine.Application.Interfaces;
-using Africuisine.Domain.Entities.User;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,8 +13,6 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using AutoMapper;
-using Africuisine.Application.Data.User;
-using Africuisine.Domain.Repositories.Repository;
 
 namespace Africuisine.Application.Services.Users
 {
@@ -31,7 +32,9 @@ namespace Africuisine.Application.Services.Users
         public async Task<Response> SigInWithEmailAndPassword(UserLoginCommand request)
         {
             var user = await UserManager.FindByEmailAsync(request.UserName);
-            return new Response { Succeeded = user is not null && await UserManager.CheckPasswordAsync(user, request.Password) };
+            bool isAuthorized = user is not null && await UserManager.CheckPasswordAsync(user, request.Password);
+            return isAuthorized ? new Response { Succeeded = isAuthorized } : 
+                throw new UnauthorizedException("Invalid username or password");
         }
 
         public Task<AuthResponse> SignInWithGoogleAuthentication()

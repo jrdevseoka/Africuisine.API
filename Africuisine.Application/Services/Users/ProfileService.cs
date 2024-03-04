@@ -2,6 +2,7 @@
 using Africuisine.Application.Data.User;
 using Africuisine.Application.Interfaces;
 using Africuisine.Domain.Repositories.Repository;
+using Africuisine.Domain.Exceptions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,8 @@ namespace Africuisine.Application.Services.Users
         {
             var profile = Mapper.Map<Domain.Entities.Users.Profile>(request);
             profile = await ProfileRepository.Add(profile);
-            return Mapper.Map<ProfileDTO>(profile);
+            return !string.IsNullOrEmpty(profile.Id) ? Mapper.Map<ProfileDTO>(profile) :
+                throw new InternalServerErrorException("An error occured while attempting to add your update your profile.");
         }
 
         public Task<ProfileDTO> GetProfileById(string id)

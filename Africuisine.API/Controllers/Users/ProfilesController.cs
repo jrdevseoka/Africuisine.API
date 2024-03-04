@@ -24,23 +24,16 @@ namespace Africuisine.API.Controllers.Users
         [Authorize]
         public async Task<IActionResult> Add([FromForm] ProfileCommand request)
         {
-            try
-            {
-                request.UserId = User.Identity.Name;
-                string uploadName = $"{Guid.NewGuid()}_africuisine_profile_picture_{Path.GetExtension(request.ProfilePicture.FileName)}";
-                
-                string path = FileService.GenerateUploadPath(uploadName);
-                await FileService.Upload(request.ProfilePicture, path);
+            request.UserId = User.Identity.Name;
+            string uploadName = $"{Guid.NewGuid()}_africuisine_profile_picture_{Path.GetExtension(request.ProfilePicture.FileName)}";
 
-                request.Uri = GenerateUri(path, Request);
-                ProfileDTO profile = await ProfileService.Add(request);
-                
-                return Ok(new Response { Message = "You have successfully added a new profile picture", Succeeded = !string.IsNullOrEmpty(profile.Id) });
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            string path = FileService.GenerateUploadPath(uploadName);
+            await FileService.Upload(request.ProfilePicture, path);
+
+            request.Uri = GenerateUri(path, Request);
+            ProfileDTO profile = await ProfileService.Add(request);
+
+            return Ok(new Response { Message = "You have successfully added a new profile picture", Succeeded = !string.IsNullOrEmpty(profile.Id) });
         }
 
         private static string GenerateUri(string path, HttpRequest request)

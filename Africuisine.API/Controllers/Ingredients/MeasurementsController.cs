@@ -20,16 +20,14 @@ namespace Africuisine.API.Controllers.Ingredients
         [Authorize]
         public async Task<IActionResult> GetMeasurements()
         {
-            try
-            {
-                var measurements = await MeasurementService.GetMeasurements();
-                return Ok(new ItemsResponse<MeasurementDTO> { Items = measurements,
-                 Succeeded = measurements.Count > 0});
-            }
-            catch(Exception ex)
-            {
-                throw;
-            }
+            var measurements = await MeasurementService.GetMeasurements();
+            return Ok(
+                new ItemsResponse<MeasurementDTO>
+                {
+                    Items = measurements,
+                    Succeeded = measurements.Count > 0
+                }
+            );
         }
     }
 }

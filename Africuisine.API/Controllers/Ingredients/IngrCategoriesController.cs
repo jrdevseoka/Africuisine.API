@@ -20,15 +20,14 @@ namespace Africuisine.API.Controllers.Ingredients
         [Authorize]
         public async Task<IActionResult> GetCategories()
         {
-            try
-            {
-                var categories = await IngrCategoryService.GetIngredientCategories();
-                return Ok(new ItemsResponse<IngredientCategoryDTO> { Items = categories, Succeeded = categories.Count > 0 });
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            var categories = await IngrCategoryService.GetIngredientCategories();
+            return Ok(
+                new ItemsResponse<IngredientCategoryDTO>
+                {
+                    Items = categories,
+                    Succeeded = categories.Count > 0
+                }
+            );
         }
     }
 }
