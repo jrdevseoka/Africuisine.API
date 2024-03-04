@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Africuisine.Domain.Entities.User
 {
-    public class UserToken : IdentityUserToken<Guid>
+    [Table("UserTokens")]
+    public class UserToken : IdentityUserToken<string>
     {
     }
 }

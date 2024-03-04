@@ -8,6 +8,6 @@ namespace Africuisine.Domain.Entities
 {
     public interface IDataEntity : IAuditing
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

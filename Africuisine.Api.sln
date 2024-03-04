@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Africuisine.API", "Africuisine.API\Africuisine.API.csproj", "{2588BC89-69B8-45E8-BD5D-06809EFC1681}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Africuisine.Application", "Africuisine.Application\Africuisine.Application.csproj", "{D72D73C0-77A0-480D-9F98-3E1C3BDF4049}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Africuisine.Domain", "Africuisine.Domain\Africuisine.Domain.csproj", "{5FDB6ED0-9CCE-4BDD-8805-FF3F350D6A37}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Africuisine.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Africuisine.Tests", "Africuisine.Tests\Africuisine.Tests.csproj", "{96F52032-9873-4CAF-A6A4-2F6560E7726B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Africuisine.API", "Africuisine.API\Africuisine.API.csproj", "{98195B36-BF00-4594-8C84-6657CCC14E25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2588BC89-69B8-45E8-BD5D-06809EFC1681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2588BC89-69B8-45E8-BD5D-06809EFC1681}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2588BC89-69B8-45E8-BD5D-06809EFC1681}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2588BC89-69B8-45E8-BD5D-06809EFC1681}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D72D73C0-77A0-480D-9F98-3E1C3BDF4049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D72D73C0-77A0-480D-9F98-3E1C3BDF4049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D72D73C0-77A0-480D-9F98-3E1C3BDF4049}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{96F52032-9873-4CAF-A6A4-2F6560E7726B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96F52032-9873-4CAF-A6A4-2F6560E7726B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96F52032-9873-4CAF-A6A4-2F6560E7726B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98195B36-BF00-4594-8C84-6657CCC14E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98195B36-BF00-4594-8C84-6657CCC14E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98195B36-BF00-4594-8C84-6657CCC14E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98195B36-BF00-4594-8C84-6657CCC14E25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

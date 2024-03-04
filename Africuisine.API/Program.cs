@@ -1,46 +1,43 @@
-using NLog;
+using Africuisine.Application.Data.Config;
+using Africuisine.Application.Extensions;
+using Africuisine.Infrastructure.Extensions;
 using Africuisine.API.Extensions;
 
-var Logger = LogManager.Setup().LoadConfigurationFromFile("NLog.config").GetCurrentClassLogger();
-try
+var builder = WebApplication.CreateBuilder(args);
+// Add services to the container.
+
+builder.Services.AddAPIAutoMappingAndFluentValidation();
+builder.Services.AddAPIUserDbContext(builder.Configuration);
+builder.Services.AddAPIDefaultDbContext(builder.Configuration);
+builder.Services.AddAPIAuthentication(builder.Configuration);
+
+//Add Custom API Repositories To The Container
+
+//Add Custom API Services To The Container
+builder.Services.AddAPIApplicationServices();
+builder.Services.AddAPIInfrastructureServices();
+
+//Adding Configuration Options
+builder.Services.Configure<PostmarkConfig>(builder.Configuration.GetSection("Postmark"));
+builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JWT"));
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAPISwaggerGen();
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-
-    var builder = WebApplication.CreateBuilder(args);
-
-    //Adding Custom API Services to the container.
-
-    // Add Build-in services to the container.
-
-    builder.Services.AddControllers();
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddAPIVersioning();
-    builder.Services.AddSwaggerGeneration();
-    builder.Services.AddSwaggerGen();
-
-    var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseHttpsRedirection();
-
-    app.UseAuthentication();
-
-    app.UseAuthorization();
-
-    app.MapControllers();
-
-    app.Run();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-catch(Exception exception)
-{
-    Logger.Error(exception);
-}
-finally {
-    LogManager.Shutdown();
-}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

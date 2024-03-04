@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Africuisine.Domain.Entities.User
 {
-    public class UserRole : IdentityUserRole<Guid>
+    [Table("UserRoles")]
+    public class UserRole : IdentityUserRole<string>
     {
 
     }
