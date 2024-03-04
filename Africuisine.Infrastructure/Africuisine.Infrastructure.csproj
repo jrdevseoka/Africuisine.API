@@ -10,7 +10,6 @@
     <ProjectReference Include="..\Africuisine.Domain\Africuisine.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Caching\" />
     <Folder Include="Jobs\" />
     <Folder Include="Queue\" />

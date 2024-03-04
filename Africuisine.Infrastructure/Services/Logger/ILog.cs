@@ -1,4 +1,4 @@
-namespace Africuisine.Infrastructure.Services.Log
+namespace Africuisine.Infrastructure.Services.Logger
 {
     public interface ILog
     {

@@ -1,7 +1,7 @@
 using System.Net;
 using Africuisine.Application.Data.Config;
 using Africuisine.Domain.Exceptions;
-using Africuisine.Infrastructure.Services.Log;
+using Africuisine.Infrastructure.Services.Logger;
 using Newtonsoft.Json;
 
 namespace Africuisine.API.Middleware

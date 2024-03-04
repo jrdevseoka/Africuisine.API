@@ -1,6 +1,6 @@
 using Serilog;
 
-namespace Africuisine.Infrastructure.Services.Log
+namespace Africuisine.Infrastructure.Services.Logger
 {
     public class Log : ILog
     {

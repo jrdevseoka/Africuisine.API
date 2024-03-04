@@ -16,7 +16,7 @@ using Africuisine.Infrastructure.Persistence.Repositories.Ingredients;
 using Africuisine.Domain.Interfaces.Ingredients;
 using Africuisine.Domain.Repositories.Services;
 using Africuisine.Infrastructure.Services.Files;
-using Africuisine.Infrastructure.Services.Log;
+using Africuisine.Infrastructure.Services.Logger;
 
 namespace Africuisine.Infrastructure.Extensions
 {
