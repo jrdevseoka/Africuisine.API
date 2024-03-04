@@ -16,6 +16,7 @@ using Africuisine.Infrastructure.Persistence.Repositories.Ingredients;
 using Africuisine.Domain.Interfaces.Ingredients;
 using Africuisine.Domain.Repositories.Services;
 using Africuisine.Infrastructure.Services.Files;
+using Africuisine.Infrastructure.Services.Log;
 
 namespace Africuisine.Infrastructure.Extensions
 {
@@ -78,6 +79,7 @@ namespace Africuisine.Infrastructure.Extensions
         {
             services.AddScoped<IPostmarkService, PostmarkService>();
             services.AddScoped<IFileService, FileService>();
+            services.AddScoped<ILog, Log>();
             services.AddScoped<ICulturalGroupRepository, CulturalGroupRepository>();
             services.AddScoped<IIngrCategoryRepository, IngrCategoryRepository>();
             services.AddScoped<IMeasurementRepository, MeasurementRepository>();

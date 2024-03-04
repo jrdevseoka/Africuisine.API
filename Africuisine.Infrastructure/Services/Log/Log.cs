@@ -1,4 +1,3 @@
-
 using Serilog;
 
 namespace Africuisine.Infrastructure.Services.Log
@@ -14,7 +13,7 @@ namespace Africuisine.Infrastructure.Services.Log
 
         public void Error(string message)
         {
-            throw new NotImplementedException();
+            Logger.Error(message);
         }
 
         public void Error(string message, object exception)
@@ -24,12 +23,12 @@ namespace Africuisine.Infrastructure.Services.Log
 
         public void Info(string message)
         {
-            throw new NotImplementedException();
+            Logger.Information(message);
         }
 
         public void Warn(string message)
         {
-            throw new NotImplementedException();
+            Logger.Warning(message);
         }
     }
 }

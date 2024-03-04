@@ -4,6 +4,7 @@ using Africuisine.Domain.Interfaces.Ingredients;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using Africuisine.Domain.Exceptions;
 
 namespace Africuisine.Application.Services.Ingredients
 {
@@ -22,7 +23,7 @@ namespace Africuisine.Application.Services.Ingredients
         {
             var measurements = await MeasurementRepository.GetMeasurements()
             .ProjectTo<MeasurementDTO>(Mapper.ConfigurationProvider).ToListAsync();
-            return measurements;
+            return measurements.Count > 0 ? measurements : throw new NotFoundException("Ingredient measurements records could not be found in the application.");
         }
     }
 }

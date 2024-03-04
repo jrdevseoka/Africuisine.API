@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Africuisine.Infrastructure.Extensions
 {
-    public static class ModelBuilderExtension
+    public static partial class ModelBuilderExtension
     {
         public static ModelBuilder ConfigureUser(this ModelBuilder builder)
         {
@@ -125,7 +125,7 @@ namespace Africuisine.Infrastructure.Extensions
                 b.HasKey(c => c.Id);
                 b.Property(c => c.Id).ValueGeneratedOnAdd();
 
-                b.Property<string>(c => c.Name).IsRequired();
+                b.Property(c => c.Name).IsRequired();
 
                 b.HasIndex(c => c.Name).HasDatabaseName("IX_IngredientCategories_Name").IsUnique();
 
@@ -143,7 +143,7 @@ namespace Africuisine.Infrastructure.Extensions
                 b.Property(c => c.Id).ValueGeneratedOnAdd();
                 b.ToTable("Measurements");
 
-                b.Property<string>(c => c.Name).IsRequired();
+                b.Property(c => c.Name).IsRequired();
 
                 b.HasIndex(c => c.Name).HasDatabaseName("IX_Measurements_Name").IsUnique();
                 var measurements = GenerateMeasurements();
@@ -200,7 +200,7 @@ namespace Africuisine.Infrastructure.Extensions
                 var category = new IngredientCategory
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Name = Regex.Replace(name, "(\\B[A-Z])", " $1"),
+                    Name = Regex.Replace(name, "(?<=[a-z])([A-Z])", " $1"),
                     Creation = DateTime.Now,
                     LastUpdate = DateTime.Now,
                     LUserUpdate = string.Empty,

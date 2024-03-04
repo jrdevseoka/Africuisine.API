@@ -34,85 +34,22 @@ namespace Africuisine.API.Controllers.Users
         [AllowAnonymous]
         public async Task<IActionResult> SignInWithEmailAndPassword(UserLoginCommand request)
         {
-            try
+            await AuthenticationService.SigInWithEmailAndPassword(request);
+            var user = await UserService.GetUserByUserName(request.UserName);
+
+            var roles = await RoleService.GetUserRoleNames(user);
+            var claims = AuthenticationService.GenerateClaims(user, roles);
+            var group = await CulturalGroupRepository.GetCulturalGroupById(user.LCulturalGroup);
+            string token = AuthenticationService.GenerateJwtToken(claims);
+            var dto = Mapper.Map<UserDTO>(user);
+            dto.CulturalGroupName = group.Name;
+            return Ok(new AuthResponse
             {
-                var response = await AuthenticationService.SigInWithEmailAndPassword(request);
-                if (response.Succeeded)
-                {
-                    var user = await UserService.GetUserByUserName(request.UserName);
-                    var roles = await RoleService.GetUserRoleNames(user);
-                    var claims = AuthenticationService.GenerateClaims(user, roles);
-                    var group = await CulturalGroupRepository.GetCulturalGroupById(user.LCulturalGroup);
-                    string token = AuthenticationService.GenerateJwtToken(claims);
-                    var dto = Mapper.Map<UserDTO>(user);
-                    dto.CulturalGroupName = group.Name;
-                    return Ok(new AuthResponse { Succeeded = !string.IsNullOrEmpty(token), Token = token,
-                     Message = "You have successfully logged in.",
-                     User = dto
-                     });
-                }
-                throw new UnauthorizedAccessException("Invalid username or password");
-            }
-            catch (Exception ex)
-            {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-                throw;
-            }
+                Succeeded = !string.IsNullOrEmpty(token),
+                Token = token,
+                Message = "You have successfully logged in.",
+                User = dto
+            });
         }
 
     }
