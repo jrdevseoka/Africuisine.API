@@ -8,6 +8,7 @@ namespace Africuisine.Infrastructure.Persistence.Context
     {
         public DbSet<IngredientCategory> IngredientCategories { get; set; }
         public DbSet<Measurement> Measurements { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         public AfricuisineDbContext(DbContextOptions<AfricuisineDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

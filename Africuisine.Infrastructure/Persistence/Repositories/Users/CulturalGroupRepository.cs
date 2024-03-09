@@ -1,3 +1,4 @@
+using Africuisine.Application.Contracts.Repositories.Users;
 using Africuisine.Domain.Entities.User;
 using Africuisine.Domain.Repositories.Repository;
 using Africuisine.Infrastructure.Persistence.Context;

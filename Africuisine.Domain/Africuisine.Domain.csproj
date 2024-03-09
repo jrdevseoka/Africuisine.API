@@ -10,7 +10,6 @@
     <Folder Include="Events\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Constants\" />
-    <Folder Include="Repositories\Services\" />
     <Folder Include="ValueObjects\Enums\" />
   </ItemGroup>
 

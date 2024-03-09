@@ -1,6 +1,6 @@
 using Africuisine.Application.Data.Ingredients;
 
-namespace Africuisine.Application.Interfaces.Ingredients
+namespace Africuisine.Application.Contracts.Services.Ingredients
 {
     public interface IIngrCategoryService
     {

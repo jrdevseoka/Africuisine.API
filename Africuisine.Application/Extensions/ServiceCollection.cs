@@ -1,6 +1,7 @@
-﻿using Africuisine.Application.Data.Config;
-using Africuisine.Application.Interfaces;
-using Africuisine.Application.Interfaces.Ingredients;
+﻿using Africuisine.Application.Contracts.Repositories.Users;
+using Africuisine.Application.Contracts.Services.Ingredients;
+using Africuisine.Application.Contracts.Services.Users;
+using Africuisine.Application.Data.Config;
 using Africuisine.Application.Services.Ingredients;
 using Africuisine.Application.Services.Users;
 using FluentValidation;
@@ -26,12 +27,7 @@ namespace Africuisine.Application.Extensions
             services.AddScoped<IIngrCategoryService, IngrCategoryService>();
             services.AddScoped<IMeasurementService, MeasurementService>();
             services.AddScoped<IProfileService, ProfileService>();
-            return services;
-        }
-        public static IServiceCollection AddAPIOptionsConfiguration(this IServiceCollection services, IConfiguration configuration)
-        {
-            // // builder.Services.Configure<SendGridDTO>(builder.Configuration.GetSection("SupportTeam"));
-            // services.Configure<PostmarkConfig>(configuration.GetSection("Postmark"));
+            services.AddScoped<IIngredientService, IngredientService>();
             return services;
         }
     }

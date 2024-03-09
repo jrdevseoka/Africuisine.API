@@ -1,13 +1,11 @@
 using Africuisine.Application.Config;
+using Africuisine.Application.Contracts.Repositories.Users;
+using Africuisine.Application.Contracts.Services.Users;
 using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Res;
 using Africuisine.Application.Data.User;
-using Africuisine.Application.Interfaces;
-using Africuisine.Domain.Entities.User;
-using Africuisine.Domain.Repositories.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Africuisine.API.Controllers.Users

@@ -1,8 +1,8 @@
 ﻿using System.Web;
 using Africuisine.Application.Config;
+using Africuisine.Application.Contracts.Services.Users;
 using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Res;
-using Africuisine.Application.Interfaces;
 using Africuisine.Infrastructure.Email;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

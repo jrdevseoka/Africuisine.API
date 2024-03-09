@@ -1,4 +1,6 @@
-﻿using Africuisine.Application.Data.Command.Users;
+﻿using Africuisine.Application.Data.Command.Ingredients;
+using Africuisine.Application.Data.Command.Users;
+using Africuisine.Domain.Entities.Ingredients;
 using Africuisine.Domain.Entities.User;
 using AutoMapper;
 
@@ -28,6 +30,10 @@ namespace Africuisine.Application.Mappers
         {
             CreateMap<ProfileCommand, Domain.Entities.Users.Profile>()
             .ForMember(dst => dst.LUser, opts => opts.MapFrom(src => src.UserId));
+        }
+         public  void MapIngredientCommadToProfile()
+        {
+            CreateMap<IngredientCommand, Ingredient>();
         }
     }
 }

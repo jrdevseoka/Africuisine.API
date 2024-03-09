@@ -4,7 +4,7 @@ using Africuisine.Application.Data.User;
 using Africuisine.Domain.Entities.User;
 using Microsoft.AspNetCore.Identity;
 
-namespace Africuisine.Application.Interfaces
+namespace Africuisine.Application.Contracts.Services.Users
 {
     public interface IUserService
     {

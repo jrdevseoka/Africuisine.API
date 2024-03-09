@@ -1,10 +1,10 @@
 using Africuisine.Application.Data.Ingredients;
-using Africuisine.Application.Interfaces.Ingredients;
 using Africuisine.Domain.Interfaces.Ingredients;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Africuisine.Domain.Exceptions;
+using Africuisine.Application.Contracts.Services.Ingredients;
 
 namespace Africuisine.Application.Services.Ingredients
 {

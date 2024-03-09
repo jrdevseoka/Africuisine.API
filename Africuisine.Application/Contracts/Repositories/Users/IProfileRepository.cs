@@ -1,6 +1,6 @@
 ﻿using Africuisine.Domain.Entities.Users;
 
-namespace Africuisine.Domain.Repositories.Repository
+namespace Africuisine.Application.Contracts.Repositories.Users
 {
     public interface IProfileRepository
     {
