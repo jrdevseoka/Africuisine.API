@@ -2,18 +2,18 @@ using Africuisine.Domain.Entities.Ingredients;
 using Africuisine.Domain.Repositories.Repository.Ingredients;
 using Africuisine.Infrastructure.Persistence.Context;
 
-public class IngrCategoryRepository : IIngrCategoryRepository
+namespace Africuisine.Infrastructure.Persistence.Repositories.Ingredients
 {
-    private readonly AfricuisineDbContext DataContext;
-
-    public IngrCategoryRepository(AfricuisineDbContext dataContext)
+    public class IngrCategoryRepository : IIngrCategoryRepository
     {
-        DataContext = dataContext;
-    }
+        private readonly AfricuisineDbContext DataContext;
 
-    public IQueryable<IngredientCategory> GetIngredientCategories()
-    {
-        var categories = DataContext.IngredientCategories.AsQueryable();
-        return categories;
+        public IngrCategoryRepository(AfricuisineDbContext dataContext) => DataContext = dataContext;
+
+        public IQueryable<IngredientCategory> GetIngredientCategories()
+        {
+            var categories = DataContext.IngredientCategories.AsQueryable();
+            return categories;
+        }
     }
 }
