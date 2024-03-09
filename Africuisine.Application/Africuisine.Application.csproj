@@ -9,7 +9,7 @@
     <ProjectReference Include="..\Africuisine.Domain\Africuisine.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Specifications\" />
     <Folder Include="Validators\" />
   </ItemGroup>

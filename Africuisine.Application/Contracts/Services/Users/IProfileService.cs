@@ -1,7 +1,7 @@
 ﻿using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.User;
 
-namespace Africuisine.Application.Interfaces
+namespace Africuisine.Application.Contracts.Services.Users
 {
     public interface IProfileService
     {

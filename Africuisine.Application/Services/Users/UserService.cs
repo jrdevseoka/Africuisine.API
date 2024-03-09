@@ -1,7 +1,7 @@
-﻿using Africuisine.Application.Data.Command.Users;
+﻿using Africuisine.Application.Contracts.Services.Users;
+using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Res;
 using Africuisine.Application.Data.User;
-using Africuisine.Application.Interfaces;
 using Africuisine.Domain.Entities.User;
 using Africuisine.Domain.Exceptions;
 using AutoMapper;

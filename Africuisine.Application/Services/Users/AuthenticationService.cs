@@ -4,7 +4,6 @@ using Africuisine.Domain.Exceptions;
 using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Config;
 using Africuisine.Application.Data.Res;
-using Africuisine.Application.Interfaces;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
@@ -13,6 +12,7 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using AutoMapper;
+using Africuisine.Application.Contracts.Repositories.Users;
 
 namespace Africuisine.Application.Services.Users
 {

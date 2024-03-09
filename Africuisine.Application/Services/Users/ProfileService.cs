@@ -1,11 +1,11 @@
 ﻿using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.User;
-using Africuisine.Application.Interfaces;
-using Africuisine.Domain.Repositories.Repository;
 using Africuisine.Domain.Exceptions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using Africuisine.Application.Contracts.Services.Users;
+using Africuisine.Application.Contracts.Repositories.Users;
 
 namespace Africuisine.Application.Services.Users
 {

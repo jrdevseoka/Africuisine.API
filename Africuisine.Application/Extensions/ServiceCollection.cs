@@ -1,6 +1,7 @@
-﻿using Africuisine.Application.Data.Config;
-using Africuisine.Application.Interfaces;
-using Africuisine.Application.Interfaces.Ingredients;
+﻿using Africuisine.Application.Contracts.Repositories.Users;
+using Africuisine.Application.Contracts.Services.Ingredients;
+using Africuisine.Application.Contracts.Services.Users;
+using Africuisine.Application.Data.Config;
 using Africuisine.Application.Services.Ingredients;
 using Africuisine.Application.Services.Users;
 using FluentValidation;

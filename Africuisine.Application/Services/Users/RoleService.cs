@@ -1,5 +1,5 @@
+using Africuisine.Application.Contracts.Services.Users;
 using Africuisine.Application.Data.User;
-using Africuisine.Application.Interfaces;
 using Africuisine.Domain.Entities.User;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;

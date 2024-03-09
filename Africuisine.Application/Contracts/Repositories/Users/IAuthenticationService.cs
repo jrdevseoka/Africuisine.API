@@ -3,7 +3,7 @@ using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Res;
 using Africuisine.Domain.Entities.User;
 
-namespace Africuisine.Application.Interfaces
+namespace Africuisine.Application.Contracts.Repositories.Users
 {
     public interface IAuthenticationService
     {

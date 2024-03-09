@@ -1,12 +1,12 @@
 ﻿using Africuisine.Application.Config;
 using Africuisine.Application.Data.Command.Users;
 using Africuisine.Application.Data.Res;
-using Africuisine.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Africuisine.Application.Data.User;
 using System.Text.Json;
 using Africuisine.Domain.Repositories.Services;
+using Africuisine.Application.Contracts.Services.Users;
 
 namespace Africuisine.API.Controllers.Users
 {
