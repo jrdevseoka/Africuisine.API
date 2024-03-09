@@ -79,7 +79,7 @@ namespace Africuisine.Infrastructure.Extensions
         {
             services.AddScoped<IPostmarkService, PostmarkService>();
             services.AddScoped<IFileService, FileService>();
-            services.AddScoped<ILog, Log>();
+            services.AddSingleton<ILog, Log>();
             services.AddScoped<ICulturalGroupRepository, CulturalGroupRepository>();
             services.AddScoped<IIngrCategoryRepository, IngrCategoryRepository>();
             services.AddScoped<IMeasurementRepository, MeasurementRepository>();
